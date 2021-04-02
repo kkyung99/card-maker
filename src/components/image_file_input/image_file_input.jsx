@@ -9,9 +9,9 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
     event.preventDefault();
     inputRef.current.click();
   };
+
   const onChange = async (event) => {
     setLoading(true);
-    console.log(event.target.files[0]);
     const uploaded = await imageUploader.upload(event.target.files[0]);
     setLoading(false);
     onFileChange({
@@ -32,7 +32,7 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
       />
       {!loading && (
         <button
-          className={`&{styles.button} ${name ? styles.pink : styles.grey}`}
+          className={`${styles.button} ${name ? styles.pink : styles.grey}`}
           onClick={onButtonClick}
         >
           {name || "No file"}
